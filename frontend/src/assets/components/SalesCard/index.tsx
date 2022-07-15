@@ -1,6 +1,7 @@
 
 // import do date picker
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -14,6 +15,13 @@ const min = new Date(new Date().setDate(new Date().getDate()-365));
 
 const [minDate,setMinDate]=useState(min);
 const [maxDate,setMaxDate]=useState(max);
+
+useEffect(()=>{
+  axios.get("https://dsmeta-brunoalves.herokuapp.com/sales")
+  .then(resposne=>{
+    console.log(resposne.data);
+  })
+},[])
 
   return (
     <div className="dsmeta-card">
