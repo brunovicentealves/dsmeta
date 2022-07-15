@@ -43,7 +43,11 @@ public class SmsService {
 
 		Message message = Message.creator(to, from,mesg).create();
 
-		System.out.println(message.getSid());
+		System.out.println("id SMS:"+message.getSid());
+		System.out.println("twilioSid:"+twilioSid);
+		System.out.println("twilioKey:"+twilioKey);
+		System.out.println("twilioPhoneFrom:"+twilioPhoneFrom);
+		System.out.println("twilioPhoneTo:"+twilioPhoneTo);
 	}
 
 }
