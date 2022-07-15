@@ -21,11 +21,17 @@ const [maxDate,setMaxDate]=useState(max);
 const [sales,setSales] = useState<Sale[]>([]);
 
 useEffect(()=>{
-  axios.get(`${BASE_URL}`)
+
+  //convertendo as datas para  2022-06-11
+const dmin = minDate.toISOString().slice(0,10);
+const dmax = maxDate.toISOString().slice(0,10);
+
+
+  axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
   .then(resposne=>{
     setSales(resposne.data.content)
   })
-},[])
+},[minDate,maxDate])
 
   return (
     <div className="dsmeta-card">
